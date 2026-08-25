@@ -4,7 +4,16 @@ An AI agent that interrogates the outgoing shift instead of transcribing it.
 
 Built on Freshservice AI Agent Studio for The Great Agent Hackathon, TGPF 2026, Track 1.
 
-Demo: https://youtu.be/rbx7h7k8etI
+## Stage 1 submission
+
+| | |
+|---|---|
+| Demo video | https://youtu.be/rbx7h7k8etI |
+| Figma board | https://www.figma.com/board/QjMAKwG4LFECuf3meS0f9J/Shift-Handover-Intelligence--agent-architecture |
+| Written submission | [PDF](Shift%20Handover%20Intelligence%20Submission.pdf) · [Word](Shift%20Handover%20Intelligence%20Submission.docx) |
+| Code | this repository |
+
+The Figma board holds three diagrams: the agent architecture, why nobody sees the collision, and the conversation as recorded on the live instance.
 
 ---
 
