@@ -1,0 +1,25 @@
+{
+  "platform-version": "3.0",
+  "product": {
+    "freshservice": {
+      "location": {}
+    }
+  },
+  "modules": {
+    "common": {
+      "requests": {
+        "getTickets": {},
+        "getChanges": {},
+        "getProblems": {}
+      }
+    },
+    "service_ticket": {}
+  },
+  "engines": {
+    "node": "24.x",
+    "fdk": "10.x"
+  },
+  "scripts": {
+    "fdk-unit-test": "vitest run --coverage"
+  }
+}

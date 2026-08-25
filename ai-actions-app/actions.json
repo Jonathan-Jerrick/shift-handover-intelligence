@@ -1,0 +1,71 @@
+{
+  "build_shift_context": {
+    "display_name": "Build shift context",
+    "description": "Assembles the complete picture of a production shift in a single call: every ticket raised on the line during the window, open maintenance jobs, repeat fault signatures, scheduled changes falling in the incoming shift, and any collision between an unresolved item and scheduled activity on the same line. Returns carryover items already classified by risk category. Use this at the start of a shift handover instead of making separate calls for tickets, changes and problems.",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {
+        "line_id": {
+          "type": "string",
+          "description": "Production line identifier, for example CBE-L3"
+        },
+        "shift_window_hours": {
+          "type": "integer",
+          "description": "Length of the shift window in hours. Defaults to 8."
+        },
+        "incoming_shift_hours": {
+          "type": "integer",
+          "description": "How far ahead to look for scheduled activity, in hours. Defaults to 8."
+        }
+      },
+      "required": ["line_id"]
+    },
+    "response": {
+      "type": "object",
+      "properties": {
+        "line_id": { "type": "string" },
+        "stoppage_count": { "type": "integer" },
+        "total_downtime_minutes": { "type": "integer" },
+        "carryovers": { "type": "array" },
+        "repeat_faults": { "type": "array" },
+        "open_maintenance": { "type": "array" },
+        "scheduled_in_window": { "type": "array" },
+        "collisions": { "type": "array" },
+        "known_problems": { "type": "array" },
+        "quiet_shift_claim_valid": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    }
+  },
+
+  "score_carryover_risk": {
+    "display_name": "Score carryover risk",
+    "description": "Classifies a list of handover carryover items into the four risk categories defined by the carryover policy, and returns them ranked highest risk first. Category 1 is maintenance still in progress, Category 2 is a recurring or unresolved fault, Category 3 is scheduled activity in the incoming window, Category 4 is informational. Also flags which items require explicit acknowledgement before the handover can be closed.",
+    "parameters": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "description": "Carryover items to classify. Each item should carry at least a summary string, and optionally line_id, ticket_id and status."
+        },
+        "incoming_shift": {
+          "type": "string",
+          "description": "Which shift is taking over: A, B or C. Shift C carries elevated risk because the Maintenance Lead is on call rather than on site."
+        }
+      },
+      "required": ["items"]
+    },
+    "response": {
+      "type": "object",
+      "properties": {
+        "ranked": { "type": "array" },
+        "requires_acknowledgement": { "type": "array" },
+        "highest_category": { "type": "integer" },
+        "escalation_required": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

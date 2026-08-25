@@ -1,0 +1,14 @@
+{
+  "name": "shift-handover-intelligence",
+  "version": "1.0.0",
+  "description": "AI Actions app exposing shift context assembly and carryover risk scoring to Freshservice AI Agent Studio",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0",
+    "@vitest/coverage-v8": "^2.1.0"
+  }
+}

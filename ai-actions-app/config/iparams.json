@@ -1,0 +1,23 @@
+{
+  "freshservice_domain": {
+    "display_name": "Freshservice domain",
+    "description": "Your Freshservice domain, without https. For example acme.freshservice.com",
+    "type": "text",
+    "required": true,
+    "secure": false
+  },
+  "freshservice_api_key": {
+    "display_name": "Freshservice API key",
+    "description": "An agent API key with read access to tickets, changes and problems. Found under Profile settings.",
+    "type": "text",
+    "required": true,
+    "secure": true
+  },
+  "default_line_id": {
+    "display_name": "Default production line",
+    "description": "Line identifier used when the agent does not supply one, for example CBE-L3",
+    "type": "text",
+    "required": false,
+    "secure": false
+  }
+}

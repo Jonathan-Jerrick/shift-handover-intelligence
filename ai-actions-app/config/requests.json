@@ -1,0 +1,46 @@
+{
+  "getTickets": {
+    "schema": {
+      "protocol": "https",
+      "method": "GET",
+      "host": "<%= iparam.freshservice_domain %>",
+      "path": "/api/v2/tickets",
+      "query": {
+        "per_page": "100",
+        "order_by": "created_at",
+        "order_type": "desc",
+        "include": "tags"
+      },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.freshservice_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "getChanges": {
+    "schema": {
+      "protocol": "https",
+      "method": "GET",
+      "host": "<%= iparam.freshservice_domain %>",
+      "path": "/api/v2/changes",
+      "query": { "per_page": "50" },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.freshservice_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "getProblems": {
+    "schema": {
+      "protocol": "https",
+      "method": "GET",
+      "host": "<%= iparam.freshservice_domain %>",
+      "path": "/api/v2/problems",
+      "query": { "per_page": "50" },
+      "headers": {
+        "Authorization": "Basic <%= encode(iparam.freshservice_api_key + ':X') %>",
+        "Content-Type": "application/json"
+      }
+    }
+  }
+}

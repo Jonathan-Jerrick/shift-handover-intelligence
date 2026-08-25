@@ -1,0 +1,9 @@
+{
+  "incoming_shift": "C",
+  "items": [
+    { "summary": "Reject bin at station 4 approaching full" },
+    { "summary": "Maintenance job on safety gate S2-B, housing open, not complete" },
+    { "summary": "Fault 4021 recurring, interlock keeps dropping out, unresolved" },
+    { "summary": "CBE-L3 tooling changeover scheduled 02:00" }
+  ]
+}
